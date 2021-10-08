@@ -57,7 +57,7 @@ config_io = {
     'temperature': {
       'display_name': 'Temperature',
       'properties': {
-        'data_unit': 'DEG_FAHRENHEIT',
+        'data_unit': 'DEG_CELSIUS',
         'data_type': 'TEMPERATURE',
       }
     },
