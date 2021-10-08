@@ -2,15 +2,24 @@ import requests
 import json
 import time
 import random
+import board
+
+from adafruit_seesaw.seesaw import Seesaw
+
+i2c_bus = board.I2C()
+ss = Seesaw(i2c_bus, addr=0x36)
 
 ##################################################
 # Get Data From Sensor
 ##################################################
+# See: https://github.com/adafruit/Adafruit_CircuitPython_seesaw/blob/main/examples/seesaw_soil_simpletest.py
 def get_data():
-
-  # TODO: https://github.com/adafruit/Adafruit_CircuitPython_seesaw/blob/main/examples/seesaw_soil_simpletest.py
-  temperature = random.randint(60, 100)
-  soil_moisture = random.randint(20, 200)
+  # temperature = random.randint(60, 100)
+  # soil_moisture = random.randint(20, 200)
+  
+  # read moisture level through capacitive touch pad
+  temperature = ss.get_temp()
+  soil_moisture = ss.moisture_read()
 
   # Format for murano
   data_in = {'temperature': temperature, 'soil_moisture': soil_moisture}
