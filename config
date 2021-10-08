@@ -1,0 +1,3 @@
+device_id=<device-id>
+device_endpoint=<device-endpoint>
+data_report_rate_seconds=30
